@@ -1,9 +1,6 @@
 import json
 
-from flask import Flask
-from flask import render_template
-from flask import request
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, render_template
 
 # Alternative server
 #from waitress import serve
@@ -36,7 +33,7 @@ def receive_json():
       return 'Please submit your logs using POST requests.'
 
 @app.route('/visitors')
-def login():
+def get_unique_ip_count():
    return unique_ip_count_as_json()
 
 if __name__ == '__main__':
