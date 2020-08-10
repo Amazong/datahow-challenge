@@ -1,17 +1,20 @@
 import json
-
 from flask import Flask, redirect, url_for, request, render_template
 
 app = Flask(__name__)
 
+# Set where the IPs will be stored, as strings, as they are received
 unique_ips = set()
+
 
 def parse_json(json_req):
    """Adds the IP from a received request to the set of previously-seen IPs"""
 
    json_req = json.loads(json_req)
    unique_ips.add(json_req['ip'])
+
    return json_req['ip']
+
 
 def unique_ip_count_as_json():
    """Returns the total number of unique IPs as a JSON-formatted string"""
@@ -22,11 +25,13 @@ def unique_ip_count_as_json():
    
    return json.dumps(unique_ip_count)
 
+
 @app.route('/')
 def main():
    """Placeholder text for the server root"""
 
-    return "Hello, DataHow!"
+   return "Hello, DataHow!"
+
 
 @app.route('/logs', methods = ['POST', 'GET'])
 def receive_json():
@@ -41,6 +46,7 @@ def receive_json():
    else:
       return 'Please submit your logs using POST requests.'
 
+
 @app.route('/visitors')
 def get_unique_ip_count():
    """Implementation of /visitors.
@@ -52,4 +58,5 @@ def get_unique_ip_count():
 
 
 if __name__ == '__main__':
+   """ Main """
    app.run(debug=True, port=5000, threaded=True)
