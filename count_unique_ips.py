@@ -23,7 +23,7 @@ def unique_ip_count_as_json():
 
 @app.route('/')
 def main():
-    return "Hello, world!"
+    return "Hello, DataHow!"
 
 @app.route('/logs', methods = ['POST', 'GET'])
 def receive_json():
