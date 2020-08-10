@@ -44,7 +44,7 @@ def receive_json():
    if request.method == 'POST':
       return parse_json(request.data)
    else:
-      return 'Please submit your logs using POST requests.'
+      return "Please submit your logs using POST requests."
 
 
 @app.route('/visitors')
