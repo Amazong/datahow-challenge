@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -7,20 +9,32 @@ app = Flask(__name__)
 
 unique_ips = set()
 
+def parse_json(json_req):
+   json_req = json.loads(json_req)
+   unique_ips.add(json_req['ip'])
+   return json_req['ip']
+
+def unique_ip_count_as_json():
+   unique_ip_count = {
+      "unique_ips": len(unique_ips)
+   }
+   
+   return json.dumps(unique_ip_count)
+
 @app.route('/')
 def main():
     return "Hello, world!"
 
-@app.route('/logs')
+@app.route('/logs', methods = ['POST', 'GET'])
 def receive_json():
-   return 'Logs'
-
-@app.route('/visitors', methods = ['POST', 'GET'])
-def login():
    if request.method == 'POST':
-      return 'Visitors POST'
+      return parse_json(request.data)
    else:
-      return 'Visitors GET'
+      return 'Please submit your logs using POST requests.'
+
+@app.route('/visitors')
+def login():
+   return unique_ip_count_as_json()
 
 if __name__ == '__main__':
    app.run(debug=True, port=5000)
