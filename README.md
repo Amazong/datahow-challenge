@@ -41,3 +41,6 @@ As can be seen in the local test, on my machine it takes ~2.5us to perform each 
 * **Numpy:** Used for vectorised random number generation for testing.
 
 ## Testing
+Two tests were performed during development:
+* A local test. This was done to validate the algorithmic efficiency of the implementation. This test can be reproduced by running the script `tests/test_local.py`.
+* A server test. To perform this, I used Postman: the associated collection is provided under `DataHow-Challenge.postman_collection.json`, and the CSV with requests is under `tests/requests.csv`. This CSV can be regenerated with the script `generate_requests.py`. Postman reported ~3ms to serve each request using the default parameters for the execution of the server running Flask.
