@@ -3,8 +3,11 @@ import json
 from flask import Flask
 from flask import render_template
 from flask import request
-
 from flask import Flask, redirect, url_for, request
+
+# Alternative server
+#from waitress import serve
+
 app = Flask(__name__)
 
 unique_ips = set()
@@ -37,4 +40,5 @@ def login():
    return unique_ip_count_as_json()
 
 if __name__ == '__main__':
-   app.run(debug=True, port=5000)
+   app.run(debug=True, port=5000, threaded=True)
+   #serve(app, host="localhost", port=5000)
