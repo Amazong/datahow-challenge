@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "a163facc-29d8-45e2-8d52-8f1b4b1e3546",
+		"name": "DataHow-Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/logs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{{request}}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/logs",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"logs"
+					]
+				},
+				"description": "Add IP"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
