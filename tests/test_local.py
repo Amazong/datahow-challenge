@@ -27,8 +27,6 @@ def main():
     print(timedelta(seconds=end-start).total_seconds() * 1e9 / len(reqs), end="")
     print(" ns", end="\n\n")
 
-    print
-
 if __name__ == "__main__":
     main()
     
