@@ -1,15 +1,20 @@
 import numpy as np
 
+
 NUM_REQUESTS = 100000
+
 
 def get_random_timestamp(quot):
     return f'{quot}timestamp{quot}: {quot}2020-06-24T15:27:00.123456Z{quot}'
 
+
 def get_random_ip(quot):
     return f'{quot}ip{quot}: {quot}%d.%d.%d.%d{quot}' % tuple(np.random.randint(256, size=4))
 
+
 def get_random_url(quot):
     return f'{quot}url{quot}: {quot}...{quot}'
+
 
 if __name__ == "__main__":
     # Write vanilla requests to txt file
